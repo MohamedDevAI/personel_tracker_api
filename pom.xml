@@ -16,8 +16,7 @@
     <description>Enterprise Personal Tracker REST API with MongoDB Atlas</description>
 
     <properties>
-        <!-- Targeted for Java 25 (can also be set to 21 when building with Java 21) -->
-        <java.version>25</java.version>
+        <java.version>21</java.version>
     </properties>
 
     <dependencies>
