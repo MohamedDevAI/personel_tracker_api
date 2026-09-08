@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/expense-dashboard")
-@CrossOrigin(origins = "*") // For local dev
 @RequiredArgsConstructor
 public class ExpenseDashboardController {
 

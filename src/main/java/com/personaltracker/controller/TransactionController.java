@@ -10,7 +10,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/transactions")
-@CrossOrigin(origins = "*") // For local dev
 @RequiredArgsConstructor
 public class TransactionController {
 
