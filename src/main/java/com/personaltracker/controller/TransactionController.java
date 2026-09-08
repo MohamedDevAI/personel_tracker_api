@@ -16,7 +16,19 @@ public class TransactionController {
     private final TransactionService transactionService;
 
     @GetMapping
-    public ResponseEntity<List<Transaction>> getAllTransactions() {
+    public ResponseEntity<List<Transaction>> getAllTransactions(
+            @RequestParam(required = false) String month,
+            @RequestParam(required = false) String category,
+            @RequestParam(required = false) String type) {
+        if (month != null && !month.isBlank()) {
+            return ResponseEntity.ok(transactionService.getTransactionsByMonth(month));
+        }
+        if (category != null && !category.isBlank()) {
+            return ResponseEntity.ok(transactionService.getTransactionsByCategory(category));
+        }
+        if (type != null && !type.isBlank()) {
+            return ResponseEntity.ok(transactionService.getTransactionsByType(type));
+        }
         return ResponseEntity.ok(transactionService.getAllTransactions());
     }
 
