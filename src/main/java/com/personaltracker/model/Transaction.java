@@ -2,6 +2,10 @@ package com.personaltracker.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,6 +14,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -26,6 +32,7 @@ public class Transaction {
     private String id;
 
     @Field("date")
+    @JsonDeserialize(using = FlexibleDateDeserializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX", timezone = "UTC")
     private Date date;
 
@@ -152,6 +159,43 @@ public class Transaction {
                     this.month = monthFmt.format(this.date);
                 }
             } catch (Exception ignored) {}
+        }
+    }
+
+    // Flexible Date Deserializer accepting ISO strings, yyyy-MM-dd, and timestamps
+    public static class FlexibleDateDeserializer extends JsonDeserializer<Date> {
+        private static final String[] PATTERNS = new String[] {
+            "yyyy-MM-dd'T'HH:mm:ss.SSSXXX",
+            "yyyy-MM-dd'T'HH:mm:ssXXX",
+            "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+            "yyyy-MM-dd'T'HH:mm:ssZ",
+            "yyyy-MM-dd'T'HH:mm:ss",
+            "yyyy-MM-dd",
+            "MM/dd/yyyy",
+            "dd/MM/yyyy"
+        };
+
+        @Override
+        public Date deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
+            String dateStr = p.getText();
+            if (dateStr == null || dateStr.trim().isEmpty()) {
+                return null;
+            }
+            dateStr = dateStr.trim();
+            for (String pattern : PATTERNS) {
+                try {
+                    SimpleDateFormat sdf = new SimpleDateFormat(pattern, Locale.ENGLISH);
+                    sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+                    return sdf.parse(dateStr);
+                } catch (ParseException ignored) {
+                }
+            }
+            try {
+                long timestamp = Long.parseLong(dateStr);
+                return new Date(timestamp);
+            } catch (NumberFormatException ignored) {
+            }
+            throw new IOException("Unable to parse date: " + dateStr);
         }
     }
 }

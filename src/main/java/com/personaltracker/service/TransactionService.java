@@ -67,6 +67,13 @@ public class TransactionService {
                 transaction.setType("Debit");
             }
         }
+        if (transaction.getAmount() != null) {
+            if (transaction.isDebit()) {
+                transaction.setAmount(-Math.abs(transaction.getAmount()));
+            } else if (transaction.isCredit()) {
+                transaction.setAmount(Math.abs(transaction.getAmount()));
+            }
+        }
         return transactionRepository.save(transaction);
     }
 

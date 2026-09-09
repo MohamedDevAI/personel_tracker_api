@@ -17,9 +17,12 @@ public class CategoryController {
     private final CategoryService categoryService;
 
     @GetMapping
-    public ResponseEntity<List<Category>> getAllCategories(@RequestParam(required = false) TransactionType type) {
-        if (type != null) {
-            return ResponseEntity.ok(categoryService.getCategoriesByType(type));
+    public ResponseEntity<List<Category>> getAllCategories(@RequestParam(required = false) String type) {
+        if (type != null && !type.isBlank()) {
+            TransactionType txType = TransactionType.fromString(type);
+            if (txType != null) {
+                return ResponseEntity.ok(categoryService.getCategoriesByType(txType));
+            }
         }
         return ResponseEntity.ok(categoryService.getAllCategories());
     }
