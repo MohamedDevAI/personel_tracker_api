@@ -1,7 +1,8 @@
-package com.personaltracker.controller;
+package com.personaltracker.Controller;
 
-import com.personaltracker.model.FinancePlanned;
-import com.personaltracker.service.FinancePlannedService;
+import com.personaltracker.Model.FinancePlanned;
+import com.personaltracker.Service.FinancePlannedService;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping({"/api/finance_planned", "/api/finance-planned"})
+@RequestMapping({ "/api/finance_planned", "/api/finance-planned" })
 @RequiredArgsConstructor
 public class FinancePlannedController {
 

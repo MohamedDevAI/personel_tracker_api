@@ -1,8 +1,9 @@
-package com.personaltracker.repository;
+package com.personaltracker.Repository;
 
-import com.personaltracker.model.Habit;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
+
+import com.personaltracker.Model.Habit;
 
 import java.util.List;
 

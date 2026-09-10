@@ -1,7 +1,8 @@
-package com.personaltracker.controller;
+package com.personaltracker.Controller;
 
-import com.personaltracker.model.TaskItem;
-import com.personaltracker.service.TaskService;
+import com.personaltracker.Model.TaskItem;
+import com.personaltracker.Service.TaskService;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

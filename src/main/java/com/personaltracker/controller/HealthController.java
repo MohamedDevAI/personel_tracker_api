@@ -1,4 +1,4 @@
-package com.personaltracker.controller;
+package com.personaltracker.Controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

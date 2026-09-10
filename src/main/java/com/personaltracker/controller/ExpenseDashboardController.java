@@ -1,7 +1,8 @@
-package com.personaltracker.controller;
+package com.personaltracker.Controller;
 
-import com.personaltracker.model.DashboardSummary;
-import com.personaltracker.service.ExpenseTrackerDashboardService;
+import com.personaltracker.Model.DashboardSummary;
+import com.personaltracker.Service.ExpenseTrackerDashboardService;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

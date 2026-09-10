@@ -1,4 +1,4 @@
-package com.personaltracker.model;
+package com.personaltracker.Model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -16,7 +16,8 @@ public enum TransactionType {
 
     @JsonCreator
     public static TransactionType fromString(String value) {
-        if (value == null) return null;
+        if (value == null)
+            return null;
         for (TransactionType t : values()) {
             if (t.name().equalsIgnoreCase(value) || t.display.equalsIgnoreCase(value)) {
                 return t;

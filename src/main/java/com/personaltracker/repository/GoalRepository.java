@@ -1,8 +1,9 @@
-package com.personaltracker.repository;
+package com.personaltracker.Repository;
 
-import com.personaltracker.model.Goal;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
+
+import com.personaltracker.Model.Goal;
 
 import java.util.List;
 

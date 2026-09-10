@@ -1,7 +1,8 @@
-package com.personaltracker.service;
+package com.personaltracker.Service;
 
-import com.personaltracker.model.Habit;
-import com.personaltracker.repository.HabitRepository;
+import com.personaltracker.Model.Habit;
+import com.personaltracker.Repository.HabitRepository;
+
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -23,7 +24,8 @@ public class HabitService {
 
     public Habit createHabit(Habit habit) {
         if (habit.getHistory() == null || habit.getHistory().isEmpty()) {
-            List<Integer> initialHistory = new ArrayList<>();
+            List<Integer> initialHistor
+                 = new ArrayList<>();
             for (int i = 0; i < 7; i++) initialHistory.add(0);
             habit.setHistory(initialHistory);
         }
@@ -37,7 +39,8 @@ public class HabitService {
             int streak = habit.getStreak();
             habit.setStreak(nextState ? streak + 1 : Math.max(0, streak - 1));
 
-            List<Integer> history = habit.getHistory();
+            List<Integer> histor
+                 = habit.getHistory();
             if (history == null) history = new ArrayList<>();
             if (history.size() >= 7) {
                 history = new ArrayList<>(history.subList(1, history.size()));

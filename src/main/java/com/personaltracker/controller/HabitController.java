@@ -1,7 +1,8 @@
-package com.personaltracker.controller;
+package com.personaltracker.Controller;
 
-import com.personaltracker.model.Habit;
-import com.personaltracker.service.HabitService;
+import com.personaltracker.Model.Habit;
+import com.personaltracker.Service.HabitService;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

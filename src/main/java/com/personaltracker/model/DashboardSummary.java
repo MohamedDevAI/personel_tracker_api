@@ -1,4 +1,4 @@
-package com.personaltracker.model;
+package com.personaltracker.Model;
 
 import lombok.Builder;
 import lombok.Data;

@@ -1,7 +1,8 @@
-package com.personaltracker.service;
+package com.personaltracker.Service;
 
-import com.personaltracker.model.TaskItem;
-import com.personaltracker.repository.TaskItemRepository;
+import com.personaltracker.Model.TaskItem;
+import com.personaltracker.Repository.TaskItemRepository;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,7 +1,8 @@
-package com.personaltracker.service;
+package com.personaltracker.Service;
 
-import com.personaltracker.model.Transaction;
-import com.personaltracker.repository.TransactionRepository;
+import com.personaltracker.Model.Transaction;
+import com.personaltracker.Repository.TransactionRepository;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

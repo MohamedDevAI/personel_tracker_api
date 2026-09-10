@@ -1,7 +1,8 @@
-package com.personaltracker.service;
+package com.personaltracker.Service;
 
-import com.personaltracker.model.Goal;
-import com.personaltracker.repository.GoalRepository;
+import com.personaltracker.Model.Goal;
+import com.personaltracker.Repository.GoalRepository;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;

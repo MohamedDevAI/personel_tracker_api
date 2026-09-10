@@ -1,10 +1,11 @@
-package com.personaltracker.service;
+package com.personaltracker.Service;
 
-import com.personaltracker.model.Category;
-import com.personaltracker.model.Transaction;
-import com.personaltracker.model.TransactionType;
-import com.personaltracker.repository.CategoryRepository;
-import com.personaltracker.repository.TransactionRepository;
+import com.personaltracker.Model.Category;
+import com.personaltracker.Model.Transaction;
+import com.personaltracker.Model.TransactionType;
+import com.personaltracker.Repository.CategoryRepository;
+import com.personaltracker.Repository.TransactionRepository;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +27,7 @@ public class CategoryService {
                 .map(String::toLowerCase)
                 .collect(Collectors.toSet());
 
+        // 
         // Dynamically include categories present in transactions if not in categories collection
         List<Transaction> transactions = transactionRepository.findAll();
         for (Transaction tx : transactions) {
