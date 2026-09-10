@@ -1,8 +1,7 @@
-package com.personaltracker.Controller;
+package com.personaltracker.controller;
 
-import com.personaltracker.Model.Expense;
-import com.personaltracker.Service.ExpenseService;
-
+import com.personaltracker.model.Expense;
+import com.personaltracker.service.ExpenseService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

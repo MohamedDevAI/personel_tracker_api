@@ -1,8 +1,7 @@
-package com.personaltracker.Controller;
+package com.personaltracker.controller;
 
-import com.personaltracker.Model.Transaction;
-import com.personaltracker.Service.TransactionService;
-
+import com.personaltracker.model.Transaction;
+import com.personaltracker.service.TransactionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -46,8 +45,7 @@ public class TransactionController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Transaction> updateTransaction(@PathVariable String id,
-            @RequestBody Transaction transaction) {
+    public ResponseEntity<Transaction> updateTransaction(@PathVariable String id, @RequestBody Transaction transaction) {
         transaction.setId(id);
         return ResponseEntity.ok(transactionService.saveTransaction(transaction));
     }

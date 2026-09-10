@@ -1,4 +1,4 @@
-package com.personaltracker.Model;
+package com.personaltracker.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -158,22 +158,21 @@ public class Transaction {
                     monthFmt.setTimeZone(TimeZone.getTimeZone("UTC"));
                     this.month = monthFmt.format(this.date);
                 }
-            } catch (Exception ignored) {
-            }
+            } catch (Exception ignored) {}
         }
     }
 
     // Flexible Date Deserializer accepting ISO strings, yyyy-MM-dd, and timestamps
     public static class FlexibleDateDeserializer extends JsonDeserializer<Date> {
         private static final String[] PATTERNS = new String[] {
-                "yyyy-MM-dd'T'HH:mm:ss.SSSXXX",
-                "yyyy-MM-dd'T'HH:mm:ssXXX",
-                "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
-                "yyyy-MM-dd'T'HH:mm:ssZ",
-                "yyyy-MM-dd'T'HH:mm:ss",
-                "yyyy-MM-dd",
-                "MM/dd/yyyy",
-                "dd/MM/yyyy"
+            "yyyy-MM-dd'T'HH:mm:ss.SSSXXX",
+            "yyyy-MM-dd'T'HH:mm:ssXXX",
+            "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+            "yyyy-MM-dd'T'HH:mm:ssZ",
+            "yyyy-MM-dd'T'HH:mm:ss",
+            "yyyy-MM-dd",
+            "MM/dd/yyyy",
+            "dd/MM/yyyy"
         };
 
         @Override

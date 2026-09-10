@@ -1,8 +1,7 @@
-package com.personaltracker.Service;
+package com.personaltracker.service;
 
-import com.personaltracker.Model.FinancePlanned;
-import com.personaltracker.Repository.FinancePlannedRepository;
-
+import com.personaltracker.model.FinancePlanned;
+import com.personaltracker.repository.FinancePlannedRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -42,7 +41,6 @@ public class FinancePlannedService {
         }
         if (plan.getIsFulfilled() == null) {
             boolean fulfilled = "Fulfilled".equalsIgnoreCase(plan.getStatus()) ||
-                            
                     (plan.getPaidAmount() != null && plan.getPlannedAmount() != null && plan.getPaidAmount() >= plan.getPlannedAmount());
             plan.setIsFulfilled(fulfilled);
         }

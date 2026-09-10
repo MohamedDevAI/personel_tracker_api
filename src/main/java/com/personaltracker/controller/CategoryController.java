@@ -1,9 +1,8 @@
-package com.personaltracker.Controller;
+package com.personaltracker.controller;
 
-import com.personaltracker.Model.Category;
-import com.personaltracker.Model.TransactionType;
-import com.personaltracker.Service.CategoryService;
-
+import com.personaltracker.model.Category;
+import com.personaltracker.model.TransactionType;
+import com.personaltracker.service.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +13,7 @@ import java.util.List;
 @RequestMapping("/api/categories")
 @RequiredArgsConstructor
 public class CategoryController {
-
+    
     private final CategoryService categoryService;
 
     @GetMapping

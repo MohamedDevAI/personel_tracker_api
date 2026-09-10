@@ -1,8 +1,7 @@
-package com.personaltracker.Controller;
+package com.personaltracker.controller;
 
-import com.personaltracker.Model.Goal;
-import com.personaltracker.Service.GoalService;
-
+import com.personaltracker.model.Goal;
+import com.personaltracker.service.GoalService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

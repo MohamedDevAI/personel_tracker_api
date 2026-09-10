@@ -1,8 +1,7 @@
-package com.personaltracker.Service;
+package com.personaltracker.service;
 
-import com.personaltracker.Model.Expense;
-import com.personaltracker.Repository.ExpenseRepository;
-
+import com.personaltracker.model.Expense;
+import com.personaltracker.repository.ExpenseRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
