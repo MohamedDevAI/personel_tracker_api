@@ -2,21 +2,17 @@ package com.personaltracker.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
+@Getter
+@RequiredArgsConstructor
 public enum TransactionType {
     CREDIT("Credit"),
     DEBIT("Debit");
 
-    private final String display;
-
-    TransactionType(String display) {
-        this.display = display;
-    }
-
     @JsonValue
-    public String getDisplay() {
-        return display;
-    }
+    private final String display;
 
     @JsonCreator
     public static TransactionType fromString(String value) {
